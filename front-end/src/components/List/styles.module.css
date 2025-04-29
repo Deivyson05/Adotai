@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    div {
+        height: 3.5rem;
+        padding: 1rem;
+        background-color: #e0e0e0;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid var(--primary-shadow);
+
+        select {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            width: 100%;
+        }
+
+        .eye {
+            cursor: pointer;
+        }
+    }
+}
