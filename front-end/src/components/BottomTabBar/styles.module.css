@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: var(--background);
+
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+
+    border-top: 2px solid var(--primary);
+
+    .inactive {
+        text-decoration: none;
+        color: var(--text);
+        filter: opacity(0.5);
+    }
+
+    .active {
+        color: var(--primary);
+        filter: opacity(1);
+    }
+}

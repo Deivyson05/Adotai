@@ -1,13 +1,11 @@
 import styles from "./styles.module.css";
 import { FileMagnifyingGlass, ArrowLeft } from '@phosphor-icons/react';
-import { getData, updateData } from "../../core/lStorage";
+import { getData, updateData } from "../../../core/lStorage";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import { Input } from "../../components/Input";
-import { Button } from "../../components/Button";
-import { CheckBox } from "../../components/CheckBox";
-import { List } from "../../components/List";
+import { Button } from "../../../components/Button";
+import { List } from "../../../components/List";
 
 
 

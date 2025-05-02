@@ -1,13 +1,13 @@
 import styles from "./styles.module.css";
 import { FileMagnifyingGlass, ArrowLeft } from '@phosphor-icons/react';
-import { updateData } from "../../core/lStorage";
+import { updateData } from "../../../core/lStorage";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import { Input } from "../../components/Input";
-import { Button } from "../../components/Button";
-import { CheckBox } from "../../components/CheckBox";
-import { TextArea } from "../../components/TextArea";
+import { Input } from "../../../components/Input";
+import { Button } from "../../../components/Button";
+import { CheckBox } from "../../../components/CheckBox";
+import { TextArea } from "../../../components/TextArea";
 
 
 export function AdoptionResearch() {
