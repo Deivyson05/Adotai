@@ -1,5 +1,5 @@
 import styles from './styles.module.css';
-import { User, PawPrint, BookmarkSimple, ChatCircle } from '@phosphor-icons/react';
+import { User, PawPrint, BookmarkSimple, HandHeart } from '@phosphor-icons/react';
 import { useNavigate } from 'react-router-dom';
 
 interface BottomTabBarProps {
@@ -31,15 +31,15 @@ export function BottomTabBar({ currentPage }: BottomTabBarProps) {
                 size={32}
                 weight="fill"
                 className={currentPage === 'favorites' ? styles.active : styles.inactive}
-                onClick={() => navigate('/favorites')}
+                onClick={() => navigate('/saved')}
             />
 
 
-            <ChatCircle
+            <HandHeart
                 size={32}
                 weight="fill"
                 className={currentPage === 'chat' ? styles.active : styles.inactive}
-                onClick={() => navigate('/chat')}
+                onClick={() => navigate('/requests')}
             />
 
         </nav>

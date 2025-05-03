@@ -4,7 +4,41 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     gap: 1rem;
+    padding: var(--dafaultPadding);
+
+    .profile {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        width: 100%;
+        padding-bottom: 1rem;
+
+        border-bottom: 1px solid var(--primary);
+
+        img {
+            width: 5rem;
+            border-radius: 50%;
+            border: 1px solid var(--primary);
+        }
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        gap: 0.5rem;
+        width: 100%;
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+
+            gap: 1rem;
+            padding: 0.5rem;
+        }
+    }
 }

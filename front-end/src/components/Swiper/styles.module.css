@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    flex-direction: column;
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        background-size: cover;
+        background-position: center;
+        background-color: rgb(41, 136, 219);
+        width: 100%;
+        height: 18rem;
+        position: relative;
+
+        border-radius: 8px;
+
+        padding: 1rem;
+        justify-content: end;
+
+        box-shadow: 0px 4px 4px #00000042;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(0, 0, 0, 0.527);
+            padding: 0.4rem;
+            border-radius: 8px;
+            backdrop-filter: blur(2px);
+            
+            p {
+                color: var(--background);
+                
+            }
+        }
+
+    }
+
+    .buttons {
+        display: flex;;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+
+        button {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            color: var(--primary);
+        }
+    }
+}

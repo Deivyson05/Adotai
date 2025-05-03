@@ -10,6 +10,9 @@ import { Credentials } from './pages/register/Credentials';
 import { Organization } from './pages/register/Organization';
 import { Match } from './pages/Match';
 import { User } from './pages/User';
+import { Saved } from './pages/Saved';
+import { Requests } from './pages/Requests';
+import { AboutThePet } from './pages/AboutThePet';
 
 export function Router() {
     return (
@@ -24,6 +27,9 @@ export function Router() {
             <Route path="/register/organization" element={<Organization />} />
             <Route path="/match" element={<Match />} />
             <Route path="/user" element={<User />} />
+            <Route path="/saved" element={<Saved />} />
+            <Route path="/requests" element={<Requests />} />
+            <Route path="/about-the-pet" element={<AboutThePet />} />
         </Routes>
     );
 }
