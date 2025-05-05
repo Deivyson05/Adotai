@@ -24,13 +24,22 @@
             display: flex;
             flex-direction: column;
             background-color: rgba(0, 0, 0, 0.527);
-            padding: 0.4rem;
+            padding: 0.6rem;
             border-radius: 8px;
             backdrop-filter: blur(2px);
+            color: var(--background);
+            gap: 1rem;
+
+            strong {
+                font-size: 1.2rem;
+                font-weight: 500;
+            }
             
-            p {
+            span {
+                display: flex;
+                align-items: center;
                 color: var(--background);
-                
+                gap: 0.3rem;
             }
         }
 

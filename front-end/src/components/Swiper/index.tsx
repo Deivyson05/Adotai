@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./styles.module.css";
-import { X, Heart, ShareFat } from "@phosphor-icons/react";
+import { X, Heart, ShareFat, MapPin } from "@phosphor-icons/react";
 
 type Info = {
     id: number;
@@ -81,9 +81,13 @@ export function Swiper() {
                         
 
                         <div>
-                            <p>{currentInfo.name}</p>
-                            <p>{currentInfo.ongName}</p>
-                            <p>{currentInfo.address}</p>
+                            <strong>{currentInfo.name}</strong>
+                            <span>
+                                <MapPin
+                                    size={24}
+                                />
+                                <span>{currentInfo.address}</span>
+                            </span>
                         </div>
 
                     </div>
