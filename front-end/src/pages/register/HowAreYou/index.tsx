@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 import { Question, Person, PawPrint } from '@phosphor-icons/react';
-import { setData, updateData } from "../../core/lStorage";
+import { setData, updateData } from "../../../core/lStorage";
 import { useNavigate } from "react-router-dom";
 
 

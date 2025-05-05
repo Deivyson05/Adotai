@@ -1,0 +1,23 @@
+.container {
+    background-color: var(--background);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+    padding: 4rem var(--dafaultPadding);
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1rem;
+
+        position: absolute;
+        top: 0;
+        border-bottom: 1px solid var(--primary);
+    }
+}

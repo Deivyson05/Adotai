@@ -1,12 +1,12 @@
 import styles from "./styles.module.css";
 import { BuildingOffice, ArrowLeft } from '@phosphor-icons/react';
-import { updateData } from "../../core/lStorage";
+import { updateData } from "../../../core/lStorage";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import { Input } from "../../components/Input";
-import { TextArea } from "../../components/TextArea";
-import { Button } from "../../components/Button";
+import { Input } from "../../../components/Input";
+import { TextArea } from "../../../components/TextArea";
+import { Button } from "../../../components/Button";
 
 export function Organization() {
 
