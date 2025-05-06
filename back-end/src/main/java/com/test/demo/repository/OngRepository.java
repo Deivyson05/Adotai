@@ -13,7 +13,7 @@ public interface OngRepository extends JpaRepository<Ong, Long> {
 
     // update method findById method are inherited from JpaRepository
     // implements:
-    Optional<Ong> findById(Long id);
+    // Optional<Ong> findById(Long id);
     
     Optional<Ong> findByCnpj(String cnpj);
     
