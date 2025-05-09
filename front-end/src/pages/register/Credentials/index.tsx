@@ -3,6 +3,7 @@ import { Lock, ArrowLeft, X, Check } from '@phosphor-icons/react';
 import { getData, updateData } from "../../../core/lStorage";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { postRegister } from "../../../api";
 
 import { Input } from "../../../components/Input";
 import { Button } from "../../../components/Button";
@@ -36,6 +37,11 @@ export function Credentials() {
             email: email,
             password: password
         });
+
+        postRegister(getData('register')).then(() => {
+            navigate('/register/finish');
+        });
+
     }
 
 

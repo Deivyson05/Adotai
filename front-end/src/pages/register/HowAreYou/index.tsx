@@ -12,6 +12,7 @@ export function HowAreYou() {
         about: {
             firstName: '',
             lastName: '',
+            cpf: '',
             phone: ''
         },
         address: {

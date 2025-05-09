@@ -10,7 +10,7 @@ import { Button } from "../../../components/Button";
 export function AboutYou() {
 
     const [name, setName] = useState('');
-    const [lastName, setLastName] = useState('');
+    const [cpf, setCpf] = useState('');
     const [phone, setPhone] = useState('');
 
     const navigate = useNavigate();
@@ -18,8 +18,8 @@ export function AboutYou() {
     const submit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         updateData('register', 'about', {
-            firstName: name,
-            lastName: lastName,
+            name: name,
+            cpf: cpf,
             phone: phone
         });
 
@@ -62,11 +62,11 @@ export function AboutYou() {
                         />
 
                         <Input
-                            label="Sobrenome"
-                            placeholder="Digite seu sobrenome"
-                            id="lastName"
+                            label="CPF"
+                            placeholder="Digite seu CPF"
+                            id="cpf"
                             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                                setLastName(event.target.value);
+                                setCpf(event.target.value);
                             }}
                             required={true}
                         />

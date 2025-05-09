@@ -14,6 +14,7 @@ import { Saved } from './pages/Saved';
 import { Requests } from './pages/Requests';
 import { AboutThePet } from './pages/AboutThePet';
 import { Pets } from './pages/Pets';
+import { Finish } from './pages/register/Finish';
 
 export function Router() {
     return (
@@ -32,6 +33,7 @@ export function Router() {
             <Route path="/requests" element={<Requests />} />
             <Route path="/about-the-pet" element={<AboutThePet />} />
             <Route path="/pets" element={<Pets />} />
+            <Route path="/register/finish" element={<Finish />} />
         </Routes>
     );
 }
