@@ -15,6 +15,7 @@ export function Adress() {
     const [neighborhood, setNeighborhood] = useState('');
     const [street, setStreet] = useState('');
     const [number, setNumber] = useState('');
+    const [complement, setComplement] = useState('');	
 
 
     const navigate = useNavigate();
@@ -27,7 +28,8 @@ export function Adress() {
             city: city,
             neighborhood: neighborhood,
             street: street,
-            number: number
+            number: number,
+            complement: complement
         });
 
         const data = getData('register');
@@ -157,6 +159,18 @@ export function Adress() {
                             }
                             type="number"
                             required
+                        />
+
+                        <Input
+                            label="Complemento"
+                            placeholder="Casa B"
+                            id="complement"
+                            onChange={
+                                (event: React.ChangeEvent<HTMLInputElement>) => {
+                                    setComplement(event.target.value);
+                                }
+                            }
+                            value={complement}
                         />
 
 
