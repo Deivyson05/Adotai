@@ -3,6 +3,6 @@ import OngController from "../controllers/Ong.controller.ts";
 
 const router:Router = Router();
 
-router.use('/register', OngController.createAdopter);
+router.use('/register', OngController.createOng);
 
 export default router;
