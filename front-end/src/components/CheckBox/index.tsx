@@ -11,7 +11,7 @@ export function CheckBox({ label, id, name, onChange }: checkProps) {
         <label htmlFor={id} className={styles.container}>
             <input type="checkbox" name={name} id={id} onChange={onChange} />
             <span className={styles.checkmark}></span>
-            <span>{label}</span>
+            <h5>{label}</h5>
         </label>
     )
 }

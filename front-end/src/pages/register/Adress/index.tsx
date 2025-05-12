@@ -17,7 +17,7 @@ export function Adress() {
     const [number, setNumber] = useState('');
     const [complement, setComplement] = useState('');	
 
-
+    let tipo = getData('register').howAreYou;
     const navigate = useNavigate();
 
     const submit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -73,8 +73,11 @@ export function Adress() {
             <section>
                 <div className={styles.question}>
                     <MapPin size={32} className={styles.icon} />
-                    <h2>Onde você mora?</h2>
-                    <span>Precisamos de sua localização para indicar ongs mais próximas.</span>
+                    <h2>{tipo === 'adopter' ? 'Onde você mora?' : 'Onde a organização se localiza?'}</h2>
+                    <span>{
+                        tipo === 'adopter' ? 'Precisamos de sua localização para indicar ongs mais próximas.' :
+                            'Precisamos de sua localização para encontrar adotantes na sua região.'    
+                    }</span>
                 </div>
 
                 <form onSubmit={submit}>

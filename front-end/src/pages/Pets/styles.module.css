@@ -7,7 +7,7 @@
     justify-content: start;
     align-items: center;
     gap: 1rem;
-    padding: 4rem var(--dafaultPadding);
+    padding: 4rem var(--defaultPadding);
 
     header {
         display: flex;

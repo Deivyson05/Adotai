@@ -12,7 +12,7 @@ interface listProps {
 export function List( { label, id, name, options, onChange }: listProps ) {
     return (
         <label htmlFor={id} className={styles.container}>
-            <span>{label}</span>
+            <h5>{label}</h5>
             <div>
                 <select id={id} name={name} onChange={onChange}>
                 {

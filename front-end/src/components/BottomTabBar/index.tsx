@@ -19,14 +19,14 @@ export function BottomTabBar({ currentPage, variant }: BottomTabBarProps) {
                             size={32}
                             weight="fill"
                             className={currentPage === 'profile' ? styles.active : styles.inactive}
-                            onClick={() => navigate('/user')}
+                            onClick={() => navigate('/ong')}
                         />
 
                         <PawPrint
                             size={32}
                             weight="fill"
                             className={currentPage === 'pets' ? styles.active : styles.inactive}
-                            onClick={() => navigate('/match')}
+                            onClick={() => navigate('/pets')}
                         />
 
                         <HandHeart

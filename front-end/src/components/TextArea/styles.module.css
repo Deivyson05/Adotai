@@ -3,6 +3,11 @@
     flex-direction: column;
     gap: 0.5rem;
 
+    span {
+        display: flex;
+        justify-content: space-between;
+    }
+
     div {
         padding: 1rem;
         background-color: #e0e0e0;

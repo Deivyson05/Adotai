@@ -15,6 +15,8 @@ import { Requests } from './pages/Requests';
 import { AboutThePet } from './pages/AboutThePet';
 import { Pets } from './pages/Pets';
 import { Finish } from './pages/register/Finish';
+import { Ong } from './pages/Ong';
+import { NewPet } from './pages/NewPet';
 
 export function Router() {
     return (
@@ -34,6 +36,8 @@ export function Router() {
             <Route path="/about-the-pet" element={<AboutThePet />} />
             <Route path="/pets" element={<Pets />} />
             <Route path="/register/finish" element={<Finish />} />
+            <Route path="/ong" element={<Ong />} />
+            <Route path="/new-pet" element={<NewPet />} />
         </Routes>
     );
 }
