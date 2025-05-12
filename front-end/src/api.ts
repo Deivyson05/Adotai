@@ -1,4 +1,5 @@
 import axios from "axios";
+import { setSessionData } from "./core/sStorage";
 
 const api = axios.create({
     baseURL: 'http://localhost:3000/',
@@ -7,9 +8,10 @@ const api = axios.create({
     }
 });
 
-export const postRegister = async (data: any) => {
+export const postRegister = async (entity: string, data: any) => {
     try {
-        const response = await api.post('/user/adopter/register', data);
+        const response = await api.post(`/user/${entity}/register`, data);
+        setSessionData('user', response.data);
         return response.data;
     } catch (error) {
         console.error(error);

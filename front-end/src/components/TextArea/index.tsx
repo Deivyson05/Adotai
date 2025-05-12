@@ -12,7 +12,10 @@ interface textAreaProps {
 export function TextArea({ label, placeholder, onChange, value, id, required }: textAreaProps) {
     return (
         <label htmlFor={id} className={styles.container}>
-            <span>{label}</span>
+            <span>
+                <h5>{label}</h5>
+                <p>{required? '*' : ''}</p>
+            </span>
             <div>
                 <textarea rows={10} required={required} id={id} value={value} placeholder={placeholder} onChange={onChange}/>
             </div>

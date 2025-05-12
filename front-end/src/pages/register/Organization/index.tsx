@@ -5,14 +5,18 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import { Input } from "../../../components/Input";
+import { CheckBox } from "../../../components/CheckBox";
 import { TextArea } from "../../../components/TextArea";
 import { Button } from "../../../components/Button";
 
 export function Organization() {
 
     const [name, setName] = useState('');
-    const [cpfOrCnpj, setCpfOrCnpj] = useState('');
+    const [hasCnpj, setHasCnpj] = useState(false);
+    const [cnpj, setCnpj] = useState('');
     const [description, setDescription] = useState('');
+    const [hasWebsite, setHasWebsite] = useState(false);
+    const [website, setWebsite] = useState('');
 
     const navigate = useNavigate();
 
@@ -20,8 +24,9 @@ export function Organization() {
         event.preventDefault();
         updateData('register', 'organization', {
             name: name,
-            cpfOrCnpj: cpfOrCnpj,
-            description: description
+            cnpj: cnpj,
+            website: website,
+            description: description,
         });
 
         
@@ -58,14 +63,44 @@ export function Organization() {
                             required={true}
                         />
 
+                        <CheckBox
+                            label="Possui CNPJ?"
+                            id="hasCnpj"
+                            name="hasCnpj"
+                            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                setHasCnpj(event.target.checked);
+                            }}
+                        />
+
                         <Input
                             label="CPF ou CNPJ"
                             placeholder="Digite seu CPF ou CNPJ"
-                            id="cpfOrCnpj"
+                            id="cnpj"
+                            active={hasCnpj}
                             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                                setCpfOrCnpj(event.target.value);
+                                setCnpj(event.target.value);
                             }}
-                            required={true}
+                            required={hasCnpj}
+                        />
+
+                        <CheckBox
+                            label="Possui site?"
+                            id="hasWebsite"
+                            name="hasWebsite"
+                            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                setHasWebsite(event.target.checked);
+                            }}
+                        />
+
+                        <Input
+                            label="Site"
+                            placeholder="Digite seu site"
+                            id="website"
+                            active={hasWebsite}
+                            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                setWebsite(event.target.value);
+                            }}
+                            required={hasWebsite}
                         />
 
                         <TextArea

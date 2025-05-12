@@ -3,6 +3,11 @@
     flex-direction: column;
     gap: 0.5rem;
 
+    span {
+        display: flex;
+        justify-content: space-between;
+    }
+
     div {
         height: 3.5rem;
         padding: 1rem;

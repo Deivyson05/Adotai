@@ -69,7 +69,7 @@ export function HowAreYou() {
                 </button>
                 <button
                     onClick={() => {
-                        updateData('register', 'howAreYou', 'organization');
+                        updateData('register', 'howAreYou', 'ong');
                         navigate('/register/about');
                     }}
                 >

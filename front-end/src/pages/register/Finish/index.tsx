@@ -1,12 +1,17 @@
 import styles from "./styles.module.css";
 import { CheckCircle } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
+import { getData } from "../../../core/lStorage";
 
 export function Finish() {
     const navigate = useNavigate();
 
     setTimeout(() => {
-        navigate('/match');
+        if(getData('register').howAreYou === 'adopter') {
+            navigate('/match');
+        }else {
+            navigate('/pets');
+        }
     }, 5000);
 
     return (

@@ -38,7 +38,7 @@ export function Credentials() {
             password: password
         });
 
-        postRegister(getData('register')).then(() => {
+        postRegister(getData('register').howAreYou ,getData('register')).then(() => {
             navigate('/register/finish');
         });
 
