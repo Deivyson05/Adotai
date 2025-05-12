@@ -4,6 +4,7 @@ import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { Radio } from "../../components/Radio";
 import styles from "./styles.module.css";
+import { postLogin } from "../../api";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -13,26 +14,38 @@ export function Welcome() {
 
     const navigate = useNavigate();
 
-    const[email, setEmail] = useState('');
-    const[password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const [loginActive, setLoginActive] = useState(false);
 
+    const submit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        postLogin({ email, password }).then((data) => {
+            if (data === 1) {
+                navigate('/match');
+            } if (data === 2) {
+                navigate('/pets');
+            }
+        });
+    }
+
     return (
-        <main 
+        <main
             className={styles.container}
-            style={{backgroundImage: `url(${background})`}}
+            style={{ backgroundImage: `url(${background})` }}
 
         >
-            
+
             <section>
                 <div className={styles.slogan}>
                     <img src={logo} alt="" />
                     <span>Seu pet, a um match!</span>
                 </div>
-                <form 
+                <form
                     className={styles.login}
-                    style={{display: loginActive ? 'flex' : 'none'}}
+                    style={{ display: loginActive ? 'flex' : 'none' }}
+                    onSubmit={submit}
                 >
                     <Input
                         label="Email"
@@ -53,37 +66,24 @@ export function Welcome() {
                             setPassword(event.target.value);
                         }}
                     />
-                    
-                    <Radio
-                        label="Sou um adotante"
-                        id="adotante"
-                        name="select"
-                    />
-
-                    <Radio
-                        label="Sou uma organização"
-                        id="ong"
-                        name="select"
-                    />
-
 
                     <Button>Entrar</Button>
 
                     <strong
-                        onClick={()=>{
+                        onClick={() => {
                             setLoginActive(false);
                         }}
                     >
                         Não tenho uma conta
                     </strong>
                 </form>
-                <div 
+                <div
                     className={styles.options}
-                    style={{display: loginActive ? 'none' : 'flex'}}
+                    style={{ display: loginActive ? 'none' : 'flex' }}
                 >
-                    <Button 
+                    <Button
                         variant="secondary"
-                        onClick={()=>{
+                        onClick={() => {
                             setLoginActive(true);
                         }}
                     >

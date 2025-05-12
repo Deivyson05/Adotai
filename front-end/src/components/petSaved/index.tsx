@@ -5,9 +5,10 @@ import { useNavigate } from "react-router-dom";
 interface petSavedProps {
     name: string;
     ongName: string;
+    img: string;
 }
 
-export function PetSaved({ name, ongName }: petSavedProps) {
+export function PetSaved({ name, ongName, img }: petSavedProps) {
     const navigate = useNavigate();
     return (
         <article 
@@ -16,7 +17,7 @@ export function PetSaved({ name, ongName }: petSavedProps) {
                 navigate('/about-the-pet');
             }}
         >
-            <img src="https://placehold.co/400" alt="pet" />
+            <img src={img} alt="pet" />
             <div>
                 <h3>{name}</h3>
                 <span>{ongName}</span>

@@ -7,7 +7,7 @@
     justify-content: start;
     align-items: center;
     gap: 1rem;
-    padding: var(--dafaultPadding);
+    padding: var(--defaultPadding);
 
     .profile {
         display: flex;
