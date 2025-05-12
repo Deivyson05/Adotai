@@ -1,6 +1,6 @@
 import { Pool } from 'pg';
 import dotenv from 'dotenv';
-import { connect } from 'http2';
+
 
 export default async function connectDB() {
     dotenv.config();

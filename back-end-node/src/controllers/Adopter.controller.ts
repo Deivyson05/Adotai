@@ -132,13 +132,15 @@ class AdopterController {
                 preference.acceptsPetsWithDeficiencies
             ]);
 
+            let sessionToken = await client.query(`SELECT user_token FROM Usuarios WHERE user_id = $1`, [about.cpf]);
+            console.log(sessionToken.rows[0]);
+            return res.status(200).send(sessionToken.rows[0]);
 
         } catch (error) {
             console.log(error);
             return res.sendStatus(500);
         }
 
-        return res.sendStatus(200);
     }
 }
 
