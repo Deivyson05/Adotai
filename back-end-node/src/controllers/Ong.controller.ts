@@ -38,7 +38,7 @@ class OngController {
                     )
                     `, [
                 about.cpf,
-                1,
+                2,
                 about.name,
                 about.phone,
                 login.email,
@@ -54,15 +54,17 @@ class OngController {
                             ong_cnpj,
                             ong_validado,
                             ong_site,
-
+                            ong_descricao
                         ) VALUES (
-                            $1, $2, $3, $4, $5
+                            $1, $2, $3, $4, $5, $6
                         )
                         
                     `, [
                 about.cpf,
                 organization.name,
-                organization.cpfOrCnpj,
+                organization.cnpj,
+                false,
+                organization.site,
                 organization.description,
             ]);
 
@@ -90,25 +92,16 @@ class OngController {
                 address.complement
             ]);
 
+            let sessionToken = await client.query(`SELECT user_token FROM Usuarios WHERE user_id = $1`, [about.cpf]);
+            console.log(sessionToken.rows[0]);
+            return res.status(200).send(sessionToken.rows[0]);
         } catch (error) {
             console.error(error)
             return res.sendStatus(400);
         }
-        return res.sendStatus(200);
     }
 
-    async createPet(req: Request, res: Response) {
-        try {
-            const OngId = await client.query(`
-                SELECT ong_id FROM ong WHERE user_id = $1
-            `, [about.cpf]);
-        }
-        catch (error) {
-            console.error(error)
-            return res.sendStatus(400)
-        }
-        return res.sendStatus(400)
-    }
+    
 }
 
 export default new OngController();
