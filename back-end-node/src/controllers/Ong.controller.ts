@@ -101,6 +101,108 @@ class OngController {
         }
     }
 
+    async createPet(req: Request, res: Response) { 
+
+        const {
+            token,
+            name,
+            age,
+            gender,
+            specie,
+            race,
+            color,
+            size,
+            temperament,
+            petPcd,
+            description
+        } = req.body;
+
+        if (
+            !token ||
+            !name ||
+            !age ||
+            !gender ||
+            !specie ||
+            !race ||
+            !color ||
+            !size ||
+            !temperament ||
+            !description
+        ) {
+            return res.sendStatus(400);
+        }
+
+        try {
+            const client = await db();
+
+            const userId = await client.query(`SELECT user_id FROM Usuarios WHERE user_token = $1`, [token]);
+            const ongId = await client.query(`SELECT ong_id FROM Ong WHERE user_id = $1`, [userId.rows[0].user_id]);
+
+            await client.query(`
+                    INSERT INTO Pet (
+                        ong_id,
+                        pet_nome,
+                        pet_idade,
+                        pet_especie,
+                        pet_raca,
+                        pet_peso,
+                        pet_sexo,
+                        pet_temperamento,
+                        pet_pcd,
+                        pet_descricao,
+                        pet_img_url
+                    ) VALUES (
+                        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11
+                    )
+                    `, [
+                ongId.rows[0].ong_id,
+                name,
+                age,
+                specie,
+                race,
+                size,
+                gender,
+                temperament,
+                petPcd,
+                description,
+                `http://192.168.0.104:3000/img/${req.file?.filename}`
+            ]);
+
+            return res.sendStatus(200);
+        } catch (error) {
+            console.error(error)
+            return res.sendStatus(400);
+        }
+    }
+
+    async getPets(req: Request, res: Response) {
+        const { token } = req.body;
+
+        if (!token) {
+            return res.sendStatus(400);
+        }
+
+        try {
+            const client = await db();
+
+            const userId = await client.query(`SELECT user_id FROM Usuarios WHERE user_token = $1`, [token]);
+            const ongId = await client.query(`SELECT ong_id FROM Ong WHERE user_id = $1`, [userId.rows[0].user_id]);
+
+            const pets = await client.query(`
+                SELECT Pet.pet_id, Pet.pet_nome, Pet.pet_img_url, Ong.ong_nome
+                FROM Pet
+                INNER JOIN Ong ON Pet.ong_id = Ong.ong_id
+                WHERE Pet.ong_id = $1;
+            `, [ongId.rows[0].ong_id]);
+
+            return res.status(200).send(pets.rows);
+        } catch (error) {
+            console.error(error)
+            return res.sendStatus(400);
+        }
+
+
+    }
     
 }
 
